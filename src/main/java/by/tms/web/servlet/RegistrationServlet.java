@@ -24,7 +24,7 @@ public class RegistrationServlet extends HttpServlet {
         if (!(name.equals("") && email.equals("") && password.equals(""))) {
             req.getRequestDispatcher("/pages/login.jsp").forward(req, resp);
         } else {
-            getServletContext().getRequestDispatcher("/pages/req.jsp").forward(req, resp);
+            resp.sendRedirect("/pages/reg.jsp");
         }
     }
 }
