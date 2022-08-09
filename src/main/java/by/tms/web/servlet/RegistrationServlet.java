@@ -21,10 +21,10 @@ public class RegistrationServlet extends HttpServlet {
         String name = req.getParameter("name");
         String email = req.getParameter("email");
         String password = req.getParameter("password");
-        if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
-            getServletContext().getRequestDispatcher("/pages/reg.jsp").include(req, resp);
-        }else {
-            resp.getWriter().println("Welcome " + name + "!!!");
+        if (!(name.equals("") && email.equals("") && password.equals(""))) {
+            req.getRequestDispatcher("/pages/login.jsp").forward(req, resp);
+        } else {
+            getServletContext().getRequestDispatcher("/pages/req.jsp").forward(req, resp);
         }
     }
 }
